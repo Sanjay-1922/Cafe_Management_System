@@ -1,0 +1,85 @@
+.owner-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+  }
+  
+  .sidebar ul li a:hover,
+  .sidebar ul li a.active {
+    background: #1abc9c;
+  }
+  
+  .content {
+    /* margin-left: 250px; */
+    padding: 20px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background-image: url("https://tse1.mm.bing.net/th/id/OIP.0IpY3tWQ4XFBP_7QYRSX0wHaFt?rs=1&pid=ImgDetMain");
+  background-repeat: no-repeat; /* Ensure the background image does not repeat */
+  background-size: cover; /* Adjust the size of the background image */
+  background-position: center;
+    text-align: center;
+  }
+  .home-content::before {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: 19px;
+    right: 19px;
+    bottom: 19px;
+    background-color: rgba(0, 0, 0, 0.5); /* Light black overlay */
+    z-index: 1; /* Ensure the overlay is above the background image */
+  }
+  h2{
+    color: #fff;
+    z-index: 3;
+    position: relative;
+  }
+  .background-image {
+    width: 200px;
+    height: 200px;
+    height: auto;
+    border-radius: 100px;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .quote {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+  }

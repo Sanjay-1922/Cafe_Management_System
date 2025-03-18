@@ -1,0 +1,44 @@
+<div class="menu-container">
+    <!-- Navbar with Category Title and Cart -->
+    <nav class="navbar">
+        <button class="btn back-btn" (click)="goBack()">⬅</button>
+        <h2 class="category-title">{{ categoryName }}</h2>
+
+        <!-- Cart Icon -->
+        <div class="cart-container">
+            <!-- <button class="btn cart-btn" (click)="goToCart()">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.eigxI83-OFKQKZJZSoHaKwHaHa?rs=1&pid=ImgDetMain" alt="Cart"
+                    class="cart-icon">
+                ({{ getCartItemCount() }})
+            </button> -->
+        </div>
+    </nav>
+
+    <!-- Menu Grid -->
+    <div class="menu-grid">
+        <div class="menu-item" *ngFor="let item of menuItems">
+            <img [src]="item.image" [alt]="item.name" class="item-image">
+            <h3> {{ item.name }}</h3>
+            <p class="item-price">₹{{ item.price }}</p>
+
+            <!-- Quantity Control -->
+            <!-- <div class="quantity-container"> -->
+            <div class="quantity-control">
+                <button *ngIf="item.quantity > 0" class="btn btn-outline-secondary plus-btn"
+                    (click)="decreaseQuantity(item)">-</button>
+                <span *ngIf="item.quantity > 0" class="quantity">{{ item.quantity }}</span>
+                <button class="btn btn-outline-secondary plus-btn" (click)="increaseQuantity(item)">+</button>
+
+            </div>
+            <!-- </div> -->
+
+            <!-- Add to Cart Button -->
+            <!-- <button class="btn btn-success add-to-cart-btn" (click)="addToCart(item)">Add to Cart</button> -->
+        </div>
+    </div>
+
+    <!-- Back Button at the End -->
+    <div class="back-button-container">
+        <!-- <button class="btn btn-primary back-btn" (click)="goBack()">⬅ Back to Categories</button> -->
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<app-sidebar></app-sidebar>
+<div class="sales-report-container">
+  <h2>📊 Customer Sales Report</h2>
+
+  <div class="search-bar">
+    <input type="date" [(ngModel)]="selectedDate" placeholder="Select Date">
+    <input type="text" [(ngModel)]="customerName" placeholder="Enter customer name (optional)">
+    <button (click)="fetchSalesReport()">🔍 Search</button>
+  </div>
+
+  <div class="filter-buttons">
+    <button (click)="fetchDailyCustomerSalesReport()">📅 Daily Summary</button>
+    <button (click)="fetchCustomerOrderReport()">🧾 Customer Order Report</button>
+  </div>
+
+  <p *ngIf="errorMessage" class="error-message">⚠️ {{ errorMessage }}</p>
+
+  <div class="sales-cards" *ngIf="salesData.length > 0">
+    <div class="sales-card" *ngFor="let customer of salesData">
+      <h3>🧾 Customer: {{ customer.customerName }}</h3>
+      <p><strong>🆔 Customer ID:</strong> {{ customer.customerId }}</p>
+      <p><strong>📦 Order Count:</strong> {{ customer.orderCount }}</p>
+      <p><strong>💰 Total Spent:</strong> ₹{{ customer.totalSpent }}</p>
+    </div>
+  </div>
+
+  <p *ngIf="salesData.length === 0" class="no-sales">No data available.</p>
+
+  <div *ngIf="isLoading" class="loading-spinner">⏳ Loading...</div>
+</div>

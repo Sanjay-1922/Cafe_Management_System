@@ -1,0 +1,60 @@
+<div class="payment-container">
+    <div class="card">
+      <div class="login-box">
+        <div class="login-snip">
+          <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+          <label for="tab-1" class="tab">Login</label>
+          <input id="tab-2" type="radio" name="tab" class="sign-up">
+          <label for="tab-2" class="tab">Sign Up</label>
+          <div class="login-space">
+            <div class="login">
+              <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="group">
+                  <label for="username" class="label">Username</label>
+                  <input id="username" type="text" class="input" formControlName="username" placeholder="Enter your username">
+                </div>
+                <div class="group">
+                  <label for="password" class="label">Password</label>
+                  <input id="password" type="password" class="input" formControlName="password" placeholder="Enter your password">
+                </div>
+                <div class="group">
+                  <input type="submit" class="button" value="Sign In">
+                </div>
+              </form>
+              <div class="hr"></div>
+              <div class="foot">
+                <a href="#">Forgot Password?</a>
+              </div>
+            </div>
+            <div class="sign-up-form">
+              <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <div class="group">
+                  <label for="phoneNumber" class="label">PhoneNumber</label>
+                  <input id="fullname" type="text" class="input" formControlName="phoneNumber" placeholder="Enter your full name">
+                </div>
+                <div class="group">
+                  <label for="username" class="label">Username</label>
+                  <input id="username" type="text" class="input" formControlName="username" placeholder="Create your username">
+                </div>
+                <div class="group">
+                  <label for="email" class="label">Email Address</label>
+                  <input id="email" type="text" class="input" formControlName="email" placeholder="Enter your email address">
+                </div>
+                <div class="group">
+                  <label for="password" class="label">Password</label>
+                  <input id="password" type="password" class="input" formControlName="password" placeholder="Create your password">
+                </div>
+                <div class="group">
+                  <input type="submit" class="button" value="Sign Up">
+                </div>
+              </form>
+              <div class="hr"></div>
+              <div class="foot">
+                <label for="tab-1">Already Member?</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

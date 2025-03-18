@@ -1,0 +1,72 @@
+.menu-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.update-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.edit-btn {
+  /* background-color: #007bff; */
+  background: none;
+  color: #007bff;
+  font-size: 16px;
+}
+
+.delete-btn {
+  /* background-color: #dc3545 */
+  background: none;
+  font-size: 16px;
+  color: #dc3545;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-table th, .menu-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.menu-table th {
+  background-color: #f8f9fa;
+}

@@ -1,0 +1,48 @@
+<!-- <div class="sidebar">
+    
+     <nav>
+        <ul>
+         
+          <li><a href="owners">Home</a></li>
+          <li><a (click)="navigateTo('dashboard')">Dashboard</a></li>
+          
+          <li><a href="category-management">Category Management</a></li>
+          <li><a href="menu-management">Menu Management</a></li>
+          <li><a href="order-management">Order Management</a></li>
+         
+          <li><a href="sales-reports">Sales Reports</a></li>
+     
+          <li><a href="settings">Settings</a></li>
+          <li><a routerLink="/" (click)="logout()">Logout</a></li>
+
+      </ul>
+    </nav> -->
+<!-- </div>  -->
+<button class="menu-toggle" (click)="toggleSidebar()">☰</button>
+
+<div class="sidebar">
+  <nav>
+    <ul>
+      <li><a href="owners">Home</a></li>
+      <li><a (click)="navigateTo('dashboard')">Dashboard</a></li>
+      <li><a href="category-management">Category Management</a></li>
+      <li><a href="menu-management">Menu Management</a></li>
+      <li><a href="order-management">Order Management</a></li>
+      <li><a href="token-management">Token Management</a></li>
+
+      <!-- Sales Reports Dropdown -->
+      <li class="dropdown">
+        <a href="javascript:void(0);" (click)="toggleSalesReports()">
+          📈 Sales Reports ▾
+        </a>
+        <ul *ngIf="salesReportsOpen" class="dropdown-menu">
+          <li><a href="category-sales-report">📊 Category Sales</a></li>
+          <li><a href="customer-sales-report">👥 Customer Sales</a></li>
+        </ul>
+      </li>
+      <li (click)="navigateTo('customer')"><a>👥 customer</a></li>
+      <li><a href="ownersetting">Settings</a></li>
+      <li><a routerLink="/" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+</div>

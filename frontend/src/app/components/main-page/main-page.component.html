@@ -1,0 +1,119 @@
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <h1 class="logo">Foodie Delight</h1>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a (click)="navigateTo('about')">About Us</a></li>
+        <li><a (click)="navigateTo('chefs')">Chefs</a></li>
+        <li><a (click)="navigateTo('contact')">Contact Us</a></li>
+        <li><a (click)="goToAccount()">Account</a></li>
+        <li><a (click)="goToCustomers()">Customers</a></li>
+        <li><button class="logout-btn" (click)="logout()">Logout</button></li>
+      </ul>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" (click)="toggleMobileNav()">☰</button>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="mobile-nav" *ngIf="mobileNavOpen">
+      <li><a (click)="navigateTo('about'); toggleMobileNav()">About Us</a></li>
+      <li><a (click)="navigateTo('chefs'); toggleMobileNav()">Chefs</a></li>
+      <li><a (click)="navigateTo('contact'); toggleMobileNav()">Contact Us</a></li>
+      <li><a (click)="goToAccount(); toggleMobileNav()">Account</a></li>
+      <li><a (click)="goToCustomers(); toggleMobileNav()">Customers</a></li>
+      <!-- <li><button class="logout-btn" (click)="logout(); toggleMobileNav()">Logout</button></li> -->
+    </ul>
+  </div>
+</header>
+
+<!-- Hero Section with Video -->
+<section class="hero">
+  <video autoplay muted loop>
+    <source src="https://marketplace.canva.com/EAFnKELAB0Q/1/1/800w/canva-video-in-yellow-charcoal-fun-dynamic-simple-and-minimal-style-F5aIrH13eAw.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay">
+    <h2>Welcome to Foodie Delight</h2>
+    <p>"Delicious moments, unforgettable flavors."</p>
+  </div>
+</section>
+
+
+<!-- Featured Categories -->
+<!-- Featured Categories -->
+<section class="categories">
+  <h2>Our Special Categories</h2>
+  <div class="category-container">
+    <div class="category" (click)="showMenu('breakfast')">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.fLxX2IL9tEyi4rLtnaKoqQHaE8?rs=1&pid=ImgDetMain" alt="Breakfast">
+      <h3>Breakfast</h3>
+    </div>
+    <div class="category" (click)="showMenu('lunch')">
+      <img src="https://mytiflo.com/wp-content/uploads/2023/09/chicken-biryani-540x426.webp" alt="Lunch">
+      <h3>Lunch</h3>
+    </div>
+    <div class="category" (click)="showMenu('dinner')">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.HWBU50Sjl7-XG-HG7bilnwHaF1?rs=1&pid=ImgDetMain" alt="Dinner">
+      <h3>Dinner</h3>
+    </div>
+  </div>
+
+  <!-- Menu Items for Selected Category -->
+  <div *ngIf="selectedCategory" class="menu-container">
+    <h3>Menu for {{ selectedCategory | titlecase }}</h3>
+    <p>Delicious dishes from our menu...</p>
+  </div>
+</section>
+
+<!-- About Us -->
+<section id="about" class="info-section">
+  <h2>About Us</h2>
+  <p>We serve delicious meals with the finest ingredients and top-notch service.If you’ve dreamed of running a cafe franchise business, it’s a proven roadmap for success. India’s love affair with tea and coffee has created a booming cafe culture, offering incredible opportunities for budding entrepreneurs.  To help you make an informed choice, we’ve compiled a list of the top 10 cafe franchise to consider in 2025 in India. Each of these has carved its niche in India’s cafe ecosystem, offering distinctive appeal and lucrative potential.1. Indian Coffee House Franchise
+ 
+    The Indian Coffee House is not just a coffee shop franchise; it’s an institution. Established in the 1950s, this cooperative chain is known for its nostalgic charm, traditional South Indian coffee, and affordable menu.
+   
+    Benefits of Indian Coffee House cafe Franchise
+   
+    Low Investment: Known for its cost-effective setup, making it a great choice for beginners.
+    Brand Recognition: A legacy brand with a loyal customer base.
+    Menu: Simple yet diverse, featuring snacks, beverages, and full meals.
+    Franchise Details
+   
+    Indian Coffee House Franchise Cost: ₹10–15 lakhs.
+    Franchise Fee: ₹2–5 lakhs.
+    Support Offered: Training, supply chain assistance, and marketing support.</p>
+<img src="https://static.wixstatic.com/media/37297a_0a98b1f7eed8414e83ea781bbe0e1e0c~mv2.jpg/v1/fit/w_2500,h_1330,al_c/37297a_0a98b1f7eed8414e83ea781bbe0e1e0c~mv2.jpg" alt="About Us">
+</section>
+
+
+<!-- Chefs Section (Now with 4 Images) -->
+<section id="chefs" class="chefs-section">
+  <h2>Meet Our Chefs</h2>
+  <div class="chefs-container">
+    <img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/04/21214853/Massimo-Bottura.jpg?tr=w-600" alt="Chef 1">
+    <img src="https://d2eohwa6gpdg50.cloudfront.net/wp-content/uploads/sites/4/2021/01/07141341/gordon-ramsay-masterclass-ft-blog0918.jpg" alt="Chef 2">
+    <img src="https://chefin.com.au/wp-content/uploads/2021/04/alain-ducasse.jpg" alt="Chef 3">
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2>Contact Us</h2>
+  <p>Email: contactfoodiedelight.com | Phone: +123 456 7890</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="social-icons">
+      <a href="#"><img src="https://tse1.mm.bing.net/th/id/OIP.TJPPqgPkbIoECkGmtCrmIQHaHa?rs=1&pid=ImgDetMain" alt="Facebook"></a>
+      <a href="#"><img src="https://tse2.mm.bing.net/th/id/OIP.hQ2zPS6VNQFnizu6LSU1ngHaHa?rs=1&pid=ImgDetMain" alt="Instagram"></a>
+      <a href="#"><img src="https://www.freepnglogos.com/x-twitter-png-logo-3.jpg" alt="Twitter"></a>
+    </div>
+    <p>&copy; 2025 Foodie Delight. All Rights Reserved.</p>
+  </div>
+</footer>

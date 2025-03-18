@@ -1,0 +1,11 @@
+<app-sidebar></app-sidebar>
+<div class="dialog-overlay" *ngIf="isVisible">
+    <div class="dialog-box">
+      <h2>Confirm Logout</h2>
+      <p>Are you sure you want to log out?</p>
+      <div class="dialog-actions">
+        <button (click)="confirm()">Yes</button>
+        <button (click)="cancel()">No</button>
+      </div>
+    </div>
+  </div>

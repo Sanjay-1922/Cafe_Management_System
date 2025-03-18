@@ -1,0 +1,51 @@
+<app-sidebar></app-sidebar>
+<div class="sales-report-container">
+  <h2>📊 Category Sales Report</h2>
+
+  <!-- 🔍 Search Section -->
+  <div class="search-bar">
+    <input type="date" [(ngModel)]="selectedDate" placeholder="Select Date">
+    <input type="text" [(ngModel)]="selectedCategory" placeholder="Enter category (optional)">
+    <input type="text" [(ngModel)]="selectedItem" placeholder="Enter item (optional)">
+    <button (click)="fetchSalesReport()">🔍 Search</button>
+  </div>
+
+  <!-- 📂 Filter Buttons -->
+  <div class="filter-buttons">
+    <button (click)="fetchDailySalesReport()">📅 Daily Sales</button>
+    <button (click)="fetchCategorySalesReport()">📦 Category Sales</button>
+    <button (click)="fetchItemSalesReport()">🍽 Item Sales</button>
+  </div>
+
+  <!-- 🚨 Error Message -->
+  <p *ngIf="errorMessage" class="error-message">⚠️ {{ errorMessage }}</p>
+
+  <!-- 🎭 Sales Report Cards -->
+  <div class="sales-cards" *ngIf="salesData">
+    <div class="sales-card">
+      <h3>📅 Date: {{ selectedDate }}</h3>
+
+      <!-- ✅ Category Information -->
+      <h3 *ngIf="selectedCategory">📦 Category: {{ selectedCategory }}</h3>
+      <h3 *ngIf="selectedItem">🍽 Item: {{ selectedItem }}</h3>
+
+      <!-- ✅ Display Total Revenue -->
+      <h4>💰 Total Revenue: ₹{{ totalRevenue }}</h4>
+
+      <!-- ✅ Display Sales Data -->
+      <div *ngFor="let data of salesData">
+        <div *ngFor="let item of data.items" class="sales-item">
+          <p><strong>🍽 Item:</strong> {{ item.itemName }}</p>
+          <p><strong>📦 Quantity Sold:</strong> {{ item.quantitySold }}</p>
+          <p><strong>💰 Revenue:</strong> ₹{{ item.totalRevenue }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🚨 No Sales Data -->
+  <p *ngIf="!salesData && !isLoading" class="no-sales">No sales data available.</p>
+
+  <!-- ⏳ Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-spinner">⏳ Loading...</div>
+</div>

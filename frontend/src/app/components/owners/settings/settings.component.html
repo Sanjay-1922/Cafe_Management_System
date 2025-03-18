@@ -1,0 +1,111 @@
+
+<app-sidebar></app-sidebar>
+<div class="settings-container">
+    <h2>Owner Settings</h2>
+    
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <button [class.active]="activeTab === 'cafe'" (click)="setActiveTab('cafe')">Café Info</button>
+      <button [class.active]="activeTab === 'hours'" (click)="setActiveTab('hours')">Operating Hours</button>
+      <button [class.active]="activeTab === 'payment'" (click)="setActiveTab('payment')">Payment Settings</button>
+      <button [class.active]="activeTab === 'tax'" (click)="setActiveTab('tax')">Tax & Pricing</button>
+      <button [class.active]="activeTab === 'notification'" (click)="setActiveTab('notification')">Notifications</button>
+      <button [class.active]="activeTab === 'users'" (click)="setActiveTab('users')">User Management</button>
+    </div>
+  
+    <!-- Tab Content -->
+    <div class="tab-content">
+      <!-- Café Info Tab -->
+      <div *ngIf="activeTab === 'cafe'" class="tab-panel">
+        <h3>Café Information</h3>
+        <label>Café Name:</label>
+        <input type="text" [(ngModel)]="cafeName" placeholder="Café Name" />
+        <label>Tagline:</label>
+        <input type="text" [(ngModel)]="tagline" placeholder="Tagline" />
+        <label>Logo URL:</label>
+        <input type="text" [(ngModel)]="logoUrl" placeholder="Logo URL" />
+        <label>Address:</label>
+        <input type="text" [(ngModel)]="address" placeholder="Address" />
+        <label>Contact:</label>
+        <input type="text" [(ngModel)]="contact" placeholder="Contact Number" />
+        <label>Facebook:</label>
+        <input type="text" [(ngModel)]="socialLinks.facebook" placeholder="Facebook URL" />
+        <label>Instagram:</label>
+        <input type="text" [(ngModel)]="socialLinks.instagram" placeholder="Instagram URL" />
+        <label>Twitter:</label>
+        <input type="text" [(ngModel)]="socialLinks.twitter" placeholder="Twitter URL" />
+      </div>
+  
+      <!-- Operating Hours Tab -->
+      <div *ngIf="activeTab === 'hours'" class="tab-panel">
+        <h3>Operating Hours</h3>
+        <label>Open Time:</label>
+        <input type="time" [(ngModel)]="openTime" />
+        <label>Close Time:</label>
+        <input type="time" [(ngModel)]="closeTime" />
+      </div>
+  
+      <!-- Payment Settings Tab -->
+      <div *ngIf="activeTab === 'payment'" class="tab-panel">
+        <h3>Payment Settings</h3>
+        <label>Accepted Payment Methods:</label>
+        <input type="text" [(ngModel)]="acceptedPayments" placeholder="Comma separated methods" />
+        <label>Refund Policy:</label>
+        <textarea [(ngModel)]="refundPolicy" placeholder="Refund policy details"></textarea>
+      </div>
+  
+      <!-- Tax & Pricing Tab -->
+      <div *ngIf="activeTab === 'tax'" class="tab-panel">
+        <h3>Tax & Pricing</h3>
+        <label>Tax Rate (%):</label>
+        <input type="number" [(ngModel)]="taxRate" min="0" />
+        <label>Discount Policy:</label>
+        <textarea [(ngModel)]="discountPolicy" placeholder="Discount details"></textarea>
+      </div>
+  
+      <!-- Notification Preferences Tab -->
+      <div *ngIf="activeTab === 'notification'" class="tab-panel">
+        <h3>Notification Preferences</h3>
+        <label>
+          <input type="checkbox" [(ngModel)]="notifyLowInventory" />
+          Notify on Low Inventory
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" [(ngModel)]="notifyNewOrders" />
+          Notify on New Orders
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" [(ngModel)]="notifyCancellations" />
+          Notify on Cancellations
+        </label>
+      </div>
+  
+      <!-- User Management Tab -->
+      <div *ngIf="activeTab === 'users'" class="tab-panel">
+        <h3>User Management</h3>
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.role }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Save Button -->
+    <div class="save-section">
+      <button (click)="saveSettings()" class="save-btn">💾 Save Settings</button>
+    </div>
+  </div>

@@ -1,0 +1,56 @@
+<app-sidebar></app-sidebar>
+
+<div class="customer-container">
+  <h2>Customer Management</h2>
+
+  <!-- Search Bar -->
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchCustomer" placeholder="Search customer by name...">
+    <button (click)="searchByCustomer()">Search</button>
+  </div>
+
+  <!-- Customers Table -->
+  <table class="customer-table">
+    <thead>
+      <tr>
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.customerId }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phoneNumber }}</td>
+        <td>
+          <button class="edit-btn" (click)="openEditModal(customer)"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="delete-btn" (click)="deleteCustomer(customer.customerId)"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Customer Modal -->
+  <div class="modal" *ngIf="selectedCustomer">
+    <div class="modal-content">
+      <h3>Edit Customer</h3>
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="selectedCustomer.name">
+      
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="selectedCustomer.email">
+      
+      <label>Phone Number:</label>
+      <input type="text" [(ngModel)]="selectedCustomer.phoneNumber">
+
+      <div class="modal-actions">
+        <button class="update-btn" (click)="updateCustomer()">Update</button>
+        <button class="close-btn" (click)="selectedCustomer = null">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

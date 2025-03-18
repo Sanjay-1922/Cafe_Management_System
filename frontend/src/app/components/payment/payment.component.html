@@ -1,0 +1,43 @@
+
+<div class="payment-container">
+  <div class="backbtn">
+  <button class="gobackbtn" (click)="goBack()"><i class="fa-regular fa-circle-left"></i></button>
+  <h2>Payment for Order #{{ orderId }}</h2>
+</div>
+        <!-- <h2>Payment for Order #{{ orderId }}</h2> -->
+        <p>Total Amount: ₹{{ totalAmount }}</p>
+      
+        <label>Select Payment Method:</label>
+        <select [(ngModel)]="paymentMethod">
+          <option value="">-- Select Payment Method --</option>
+          <option value="UPI">UPI</option>
+          <option value="Credit Card">Credit/Debit Card</option>
+        </select>
+      
+        <!-- UPI Payment -->
+        <div *ngIf="paymentMethod === 'UPI'">
+          <label>Enter UPI ID:</label>
+          <input type="text" [(ngModel)]="upiId" placeholder="yourname@upi" />
+        </div>
+      
+        <!-- Card Payment -->
+        <div *ngIf="paymentMethod === 'Credit Card'">
+          <label>Card Number:</label>
+          <input type="text" [(ngModel)]="cardNumber" placeholder="1234567812345678" maxlength="16" />
+      
+          <label>Expiry Date:</label>
+          <input type="text" [(ngModel)]="expiryDate" placeholder="MM/YY" maxlength="5" />
+      
+          <label>CVV:</label>
+          <input type="password" [(ngModel)]="cvv" placeholder="123" maxlength="3" />
+        </div>
+      
+        <!-- Pay Button -->
+        <button (click)="processPayment()">Pay ₹{{ totalAmount }}</button>
+      
+        <!-- Show Order Status Button after Payment -->
+        <div *ngIf="paymentSuccess">
+          <h3>Payment Successful! Your Token ID: {{ tokenId }}</h3>
+          <button (click)="goToOrderStatus()">Go to Order Status</button>
+        </div>
+      </div>

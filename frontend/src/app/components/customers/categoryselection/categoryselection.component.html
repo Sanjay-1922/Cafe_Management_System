@@ -1,0 +1,36 @@
+<div class="category-container">
+    <!-- 🛒 Cart Icon -->
+    <div class="cart-icon" (click)="goToCart()">
+        🛒
+        <span class="cart-count" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+    </div>
+
+    <h2 class="text-center">📋 Select a Category</h2>
+
+    <div class="row">
+        <!-- ✅ Loop through categories -->
+        <div class="col" *ngFor="let category of categories">
+            <div class="category-card card p-3">
+                <h3 class="category-title">{{ category.name }} ({{ category.itemsCount }} Items) 📌</h3>
+
+                <!-- ✅ Menu Items Inside Category -->
+                <div class="menu-items">
+                    <div class="menu-item card p-2 mb-2" *ngFor="let item of category.menuItems; let i = index" [ngStyle]="{'background-color': getColor(i)}">
+                        <div class="menu-item-details">
+                            <h5 class="item-name">🍽️ {{ item.name }}</h5>
+                            <p><strong>💰 Price:</strong> ${{ item.price }}</p>
+                        </div>
+
+                        <!-- ✅ Add to Cart Button -->
+                        <button class="btn btn-success w-100" (click)="addToCart(item.menuItemId)">🛒 Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- ✅ View Menu Button -->
+                <!-- <button class="btn btn-primary w-100 mt-2" (click)="selectCategory(category.categoryId)">
+                    View Menu 📜
+                </button> -->
+            </div>
+        </div>
+    </div>
+</div>

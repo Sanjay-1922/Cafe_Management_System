@@ -1,0 +1,20 @@
+<div class="owner-container">
+  
+    <!-- Sidebar Navigation -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Main Content -->
+    <div class="content owner-home-content">
+      <div *ngIf="showHomePage" class="home-content">
+        <img src="https://img.freepik.com/premium-vector/svg-style-illustration-logo-restaurant_960911-2155.jpg?w=2000" alt="Cafe Image" class="background-image">
+        <div class="quote">
+          <h2>"Great food, great service, and great success!"</h2>
+        </div>
+      </div>
+      <router-outlet *ngIf="!showHomePage"></router-outlet>
+    </div>
+
+
+
+  
+  </div>

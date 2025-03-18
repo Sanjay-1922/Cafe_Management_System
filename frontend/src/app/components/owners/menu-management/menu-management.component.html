@@ -1,0 +1,41 @@
+<app-sidebar></app-sidebar>
+<div class="menu-container">
+  <h2>🍽 Menu Management</h2>
+
+  <!-- Add / Update Menu Item Form -->
+  <div class="form-container">
+    <h3>{{ isEditing ? 'Update Menu Item' : 'Add New Menu Item' }}</h3>
+    <input type="text" placeholder="Item Name" [(ngModel)]="newItem.name" required />
+    <input type="number" placeholder="Price" [(ngModel)]="newItem.price" required />
+    <input type="text" placeholder="Category" [(ngModel)]="newItem.category" required />
+
+    <button class="add-btn" *ngIf="!isEditing" (click)="addMenuItem()">➕ Add Item</button>
+    <button class="update-btn" *ngIf="isEditing" (click)="updateMenuItem()">✔ Update Item</button>
+    <button class="cancel-btn" *ngIf="isEditing" (click)="resetForm()">❌ Cancel</button>
+  </div>
+
+  <!-- Menu Item List -->
+  <table class="menu-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of menuItems; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>${{ item.price }}</td>
+        <td>{{ item.category }}</td>
+        <td>
+          <button class="edit-btn" (click)="editMenuItem(item)"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="delete-btn" (click)="deleteMenuItem(item.menuItemId)"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

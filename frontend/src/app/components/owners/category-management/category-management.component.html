@@ -1,0 +1,35 @@
+<app-sidebar></app-sidebar>
+<div class="manage-category-container">
+  <!-- Left Section - Add / Edit Category -->
+  <div class="left-section">
+    <h2>{{ isEditing ? '✏ Edit Category' : '➕ Add New Category' }}</h2>
+    <form class="add-category-form">
+      <input type="text" [(ngModel)]="newCategory.name" placeholder="Category Name" name="name" required />
+      <button type="button" (click)="isEditing ? updateCategory() : addCategory()">
+        {{ isEditing ? '✔ Update' : '📚 Add Category' }}
+      </button>
+      <button *ngIf="isEditing" type="button" class="cancel-btn" (click)="resetForm()">✖ Cancel</button>
+    </form>
+  </div>
+
+  <!-- Right Section - Search & Category List -->
+  <div class="right-section">
+    <h2>🔍 Search Categories</h2>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchName" placeholder="Search by Name" name="searchName" />
+      <button type="button" (click)="searchCategories()">🔎 Search</button>
+    </div>
+
+    <h2>📖 Available Categories</h2>
+    <div class="category-list">
+      <div *ngFor="let category of categories" class="category-card">
+        <h3>{{ category.name }}</h3>
+        <p><strong>Items:</strong> {{ category.itemsCount }}</p>
+        <div class="category-buttons">
+          <button class="edit-btn" (click)="editCategory(category)">✏ Edit</button>
+          <button class="delete-btn" (click)="confirmDelete(category.categoryId)">🗑 Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

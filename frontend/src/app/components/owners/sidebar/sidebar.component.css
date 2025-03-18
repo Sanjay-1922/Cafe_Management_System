@@ -1,0 +1,54 @@
+.sidebar {
+  width: 0px;
+  /* background: #2c3e50; */
+  /* From https://css.glass */
+  /* From https://css.glass */
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.14);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+  color: black;
+  padding: 0px;
+  position: fixed;
+  height: 100%;
+  display: none;
+  z-index: 5;
+  left: 30px;
+  overflow: scroll;
+}
+
+.menu-toggle {
+  border: none;
+  background: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: #ffbf00 ;
+  border-radius: 5px;
+  cursor: pointer;
+}

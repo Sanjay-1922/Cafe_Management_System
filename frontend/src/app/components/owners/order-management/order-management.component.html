@@ -1,0 +1,54 @@
+<app-sidebar></app-sidebar>
+<div class="container-fluid order-container">
+  <h2 class="text-center my-4">Order Management</h2>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Order ID</th>
+          <th>Customer ID</th>
+          <th>Order Date</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.customerId }}</td>
+          <td>{{ order.orderDate | date:'short' }}</td>
+          <td>${{ order.totalAmount.toFixed(2) }}</td>
+          <td>
+            <select class="form-control status-dropdown"
+              [(ngModel)]="order.status"
+              (change)="updateOrderStatus(order.orderId, order.status)">
+              <option *ngFor="let status of statusOptions" [value]="status">
+                {{ status }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <span class="badge" [ngClass]="{
+              'badge-warning': order.status === 'Processing',
+              'badge-info': order.status === 'Ready',
+              'badge-success': order.status === 'Completed'
+            }">
+              <!-- {{ order.status }} -->
+              <ng-container *ngIf="order.status === 'Completed'">
+                <i class="fa-solid fa-circle-check" style="color: #30f722;"></i>
+              </ng-container>
+              <ng-container *ngIf="order.status === 'Processing'">
+                <i class="fa-solid fa-hourglass-end" style="color: #ffd43b;"></i>
+              </ng-container>
+              <ng-container *ngIf="order.status === 'Ready'">
+                <i class="fa-solid fa-utensils" style="color: #1029e5;"></i>
+              </ng-container>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

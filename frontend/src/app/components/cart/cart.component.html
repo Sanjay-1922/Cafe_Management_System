@@ -1,0 +1,31 @@
+<div class="cart-container">
+<div class="mycart">
+    <h2>🛒 Your Cart</h2>
+    <button class="gobackbtn" (click)="goBack()"><i class="fa-regular fa-circle-left"></i></button>
+    </div>
+
+    <!-- If cart is empty -->
+    <p *ngIf="cartItems.length === 0">Your cart is empty.</p>
+
+    <!-- Display cart items -->
+    <div *ngFor="let item of cartItems" class="cart-item">
+        <p><strong>🍽️ {{ item.menuItemName }}</strong></p>
+        <p>💰 Price: ${{ item.pricePerUnit }}</p>
+        <p>🛍️ Quantity:
+            <button (click)="decreaseQuantity(item)">➖</button>
+            {{ item.quantity }}
+            <button (click)="increaseQuantity(item)">➕</button>
+        </p>
+        <p>📊 Total: ${{ item.totalPrice }}</p>
+        <button class="remove-btn" (click)="removeItem(item.cartItemId)">❌ Remove</button>
+    </div>
+
+    <!-- Total amount -->
+    <h3>Total: ${{ totalAmount }}</h3>
+
+    <!-- Place Order Button -->
+     <div class="clearcart">
+    <button class="order-btn" (click)="placeOrder()" [disabled]="cartItems.length === 0">✅ Place Order</button>
+    <button class="clrcart" (click)="clearCart()">Clear Cart</button>
+    </div>
+</div>

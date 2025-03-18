@@ -1,0 +1,110 @@
+.settings-container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Tab Navigation */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .tabs button.active {
+    background: #0056b3;
+  }
+  
+  .tabs button:hover {
+    background: #0056b3;
+  }
+  
+  /* Tab Content */
+  .tab-content {
+    margin-bottom: 20px;
+  }
+  
+  .tab-panel {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  /* Form Controls */
+  input[type="text"],
+  input[type="time"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* User Management Table */
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .users-table th,
+  .users-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .users-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Save Button */
+  .save-section {
+    text-align: center;
+  }
+  
+  .save-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .tabs {
+      flex-direction: column;
+    }
+  }

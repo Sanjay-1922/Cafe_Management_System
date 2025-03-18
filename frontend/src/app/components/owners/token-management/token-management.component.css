@@ -1,0 +1,71 @@
+.token-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .token-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .token-table th, .token-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .token-table th {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .token-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .token-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .ready {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .not-ready {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .btn-update {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .btn-update:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .btn-update:hover, .btn-delete:hover {
+    opacity: 0.8;
+  }

@@ -1,0 +1,106 @@
+/* 📌 Main Container */
+.order-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Align table to the right */
+}
+
+/* 📌 Table Styling */
+.table {
+  width: 75%; /* Adjust width for right-side placement */
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th, .table td {
+  padding: 15px;
+  text-align: left;
+}
+.table td{
+  border: 1px solid #dee2e6;
+
+}
+.thead-dark th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* 📌 Status Badge Styling */
+.badge {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  display: inline-block;
+}
+
+.badge-warning {
+  /* background-color: #ffc107; */
+  font-size: 20px;
+  color: black;
+}
+
+.badge-info {
+  /* background-color: #17a2b8; */
+  font-size: 20px;
+  color: white;
+}
+.ready{
+  width: 16px;
+  height: 16px;
+}
+.badge-success {
+  /* background-color: #28a745; */
+  font-size: 20px;
+  color: white;
+}
+
+/* 📌 Status Dropdown */
+.status-dropdown {
+  width: 150px;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  background-color: #f8f9fa;
+  transition: 0.3s ease-in-out;
+}
+
+.status-dropdown:focus {
+  border-color: #007bff;
+  background-color: white;
+}
+
+/* 📌 Responsive Layout */
+@media (max-width: 1024px) {
+  .order-container {
+    display: block;
+    text-align: center;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  .status-dropdown {
+    width: 100px;
+  }
+}

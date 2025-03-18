@@ -1,0 +1,24 @@
+<div class="order-status-container">
+  <div class="parentOrd">
+    <div class="ord">
+      <button class="gobackbtn" (click)="goBack()"><i class="fa-solid fa-house"></i></button>
+     </div>
+     <h2>Order Status</h2>
+  </div>
+    
+  
+    <div *ngIf="tokenData">
+      <p class="order-details"><strong>Token ID:</strong> {{ tokenData.id }}</p>
+      <p class="order-details"><strong>Order ID:</strong> {{ tokenData.orderId }}</p>
+      <p class="order-details"><strong>Token Number:</strong> {{ tokenData.tokenNumber }}</p>
+      <p class="order-details"><strong>Created At:</strong> {{ tokenData.createdAt }}</p>
+  
+      <!-- Status Display -->
+      <p [ngClass]="{'ready': tokenData.status === 'Ready', 'not-ready': tokenData.status !== 'Ready'}" class="status">
+        {{ tokenData.status === 'Ready' ? 'Your order is ready! 🎉' : 'Your order is being prepared...' }}
+      </p>
+    </div>
+  
+    <button (click)="refreshStatus()">Refresh Status</button>
+   
+  </div>

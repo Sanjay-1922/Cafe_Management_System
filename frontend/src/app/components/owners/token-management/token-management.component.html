@@ -1,0 +1,36 @@
+<app-sidebar></app-sidebar>
+<div class="token-container">
+    <h2>Token Management</h2>
+
+    <table class="token-table">
+        <thead>
+            <tr>
+                <th>Token ID</th>
+                <th>Order ID</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let token of tokens">
+                <td>{{ token.tokenId }}</td>
+                <td>{{ token.orderId }}</td>
+                <td>
+                    <span [class.ready]="token.status === 'Ready'" [class.not-ready]="token.status === 'Not Ready'">
+                        {{ token.status }}
+                    </span>
+                </td>
+                <td>{{ token.createdAt | date: 'medium' }}</td>
+                <td>
+                    <button class="btn-update" (click)="updateTokenStatus(token)" [disabled]="token.status === 'Ready'">
+                        Mark as Ready
+                    </button>
+                    <button class="btn-delete" (click)="deleteToken(token.tokenId)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
